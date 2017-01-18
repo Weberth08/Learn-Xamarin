@@ -52,8 +52,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Factory\DomainFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ConsideringAChallenge.cs" />
+    <Compile Include="Tests\ConsideringAnHouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HouseChallenges.Domain\HouseChallenges.Domain.csproj">

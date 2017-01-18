@@ -25,8 +25,8 @@ namespace HouseChallenges.Domain.Entities
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public List<Activity> Activities { get; set; }
-        public List<Person> People { get; set; }
+        public virtual ICollection<Activity> Activities { get; set; }
+        public virtual ICollection<Person> People { get; set; }
 
         public int TotalPoints => Activities.Sum(activity => activity.Points);
 
