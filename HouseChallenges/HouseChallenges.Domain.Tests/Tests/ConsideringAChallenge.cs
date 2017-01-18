@@ -1,5 +1,4 @@
 ﻿using HouseChallenges.Domain.Entities;
-using HouseChallenges.Domain.Tests.Factory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HouseChallenges.Domain.Tests.Tests
@@ -8,19 +7,19 @@ namespace HouseChallenges.Domain.Tests.Tests
     /// Summary description for ConsideringAChallenge
     /// </summary>
     [TestClass]
-    public class ConsideringAChallenge
+    public class ConsideringAChallenge : BaseTest
     {
-        private readonly DomainFactory _factory;
+
         public ConsideringAChallenge()
         {
-            _factory = new DomainFactory();
+
         }
 
 
         [TestMethod]
         public void MustAddAnActivity()
         {
-            var challenge = _factory.GetNewChallengeInstance();
+            var challenge = Factory.GetNewChallengeInstance();
             Assert.AreEqual(challenge.Activities.Count, 0);
 
             challenge.AddActivity(new Activity());
@@ -31,10 +30,10 @@ namespace HouseChallenges.Domain.Tests.Tests
         [TestMethod]
         public void MustAddAPerson()
         {
-            var challenge = _factory.GetNewChallengeInstance();
+            var challenge = Factory.GetNewChallengeInstance();
             Assert.AreEqual(challenge.People.Count, 0);
 
-            challenge.AddParticipant(new Person());
+            challenge.AddParticipant(Factory.GetNewPersonInstance());
             Assert.AreEqual(challenge.People.Count, 1);
 
         }
@@ -42,7 +41,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         [TestMethod]
         public void MustCalculateExecutedPoints()
         {
-            var challenge = _factory.GetNewChallengeInstance();
+            var challenge = Factory.GetNewChallengeInstance();
             var executedActivity = new Activity
             {
                 Points = 500,
@@ -57,7 +56,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         [TestMethod]
         public void MustCalculateEstimatedPoints()
         {
-            var challenge = _factory.GetNewChallengeInstance();
+            var challenge = Factory.GetNewChallengeInstance();
             var executedActivity = new Activity
             {
                 Points = 500,
@@ -79,7 +78,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         [TestMethod]
         public void MustHaveAnId()
         {
-            var challenge = _factory.GetNewChallengeInstance();
+            var challenge = Factory.GetNewChallengeInstance();
             Assert.AreNotEqual(challenge.Id.ToString(), string.Empty);
         }
 

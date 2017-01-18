@@ -54,8 +54,10 @@
   <ItemGroup>
     <Compile Include="Factory\DomainFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\ConsideringAChallenge.cs" />
     <Compile Include="Tests\ConsideringAnHouse.cs" />
+    <Compile Include="Tests\ConsideringAPerson.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HouseChallenges.Domain\HouseChallenges.Domain.csproj">

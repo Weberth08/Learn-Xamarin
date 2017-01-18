@@ -1,6 +1,4 @@
-﻿using HouseChallenges.Domain.Entities;
-using HouseChallenges.Domain.Tests.Factory;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HouseChallenges.Domain.Tests.Tests
 {
@@ -8,15 +6,14 @@ namespace HouseChallenges.Domain.Tests.Tests
     /// Summary description for ConsideringAnHouse
     /// </summary>
     [TestClass]
-    public class ConsideringAnHouse
+    public class ConsideringAnHouse : BaseTest
     {
-        private readonly DomainFactory _factory;
+
         public ConsideringAnHouse()
         {
 
-            _factory = new DomainFactory();
-        }
 
+        }
 
 
         #region Additional test attributes
@@ -44,8 +41,8 @@ namespace HouseChallenges.Domain.Tests.Tests
         [TestMethod]
         public void MustAddAChallenge()
         {
-            var house = _factory.GetNewHouseInstance();
-            house.AddChallenge(_factory.GetNewChallengeInstance());
+            var house = Factory.GetNewHouseInstance();
+            house.AddChallenge(Factory.GetNewChallengeInstance());
             Assert.AreEqual(house.Challenges.Count, 1);
 
         }
@@ -53,15 +50,15 @@ namespace HouseChallenges.Domain.Tests.Tests
         [TestMethod]
         public void MustAddInhabitant()
         {
-            var house = _factory.GetNewHouseInstance();
-            house.AddInhabitant(new Person());
+            var house = Factory.GetNewHouseInstance();
+            house.AddInhabitant(Factory.GetNewPersonInstance());
             Assert.AreEqual(house.Inhabitants.Count, 1);
         }
 
         [TestMethod]
         public void MustHaveAName()
         {
-            var house = _factory.GetNewHouseInstance();
+            var house = Factory.GetNewHouseInstance();
             Assert.AreNotEqual(house.Name, string.Empty);
         }
 

@@ -15,5 +15,9 @@ namespace HouseChallenges.Domain.Tests.Factory
             return new ChallengeBase("Test", DateTime.Now, DateTime.Now);
         }
 
+        public Person GetNewPersonInstance()
+        {
+            return new Person("Person 01");
+        }
     }
 }
