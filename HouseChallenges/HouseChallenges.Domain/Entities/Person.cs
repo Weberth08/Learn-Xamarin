@@ -32,5 +32,10 @@
         {
             activity.FinishPartially();
         }
+
+        public void CancelActivity(Activity activity)
+        {
+            activity.Cancel();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using HouseChallenges.Domain.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace HouseChallenges.Domain.Tests.Tests
 {
@@ -63,6 +64,126 @@ namespace HouseChallenges.Domain.Tests.Tests
             Assert.AreEqual(true, activity.Status == ActivityStatus.PartiallyExecuted);
 
         }
+
+        [TestMethod]
+        public void MustCancelAnActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            Assert.AreEqual(true, activity.Status == ActivityStatus.InProgress);
+
+            person.CancelActivity(activity);
+            Assert.AreEqual(true, activity.Status == ActivityStatus.Canceled);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotCancelAnPerformedActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            Assert.AreEqual(true, activity.Status == ActivityStatus.InProgress);
+
+            person.FinishActivity(activity);
+
+            person.CancelActivity(activity);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotCancelAnPerformedPartiallyActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            person.FinishPartiallyActivity(activity);
+
+            person.CancelActivity(activity);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotStartAnCanceledActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            person.CancelActivity(activity);
+
+            person.StartActivity(activity);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotStartAnStartedActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            person.StartActivity(activity);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotStartAPerformedPartiallyActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            person.FinishPartiallyActivity(activity);
+            person.StartActivity(activity);
+
+        }
+
+
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotFinishAPerformedPartiallyActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            person.FinishPartiallyActivity(activity);
+            person.FinishActivity(activity);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotFinishAPerformedActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            person.FinishActivity(activity);
+            person.FinishActivity(activity);
+
+        }
+
     }
 
 }
