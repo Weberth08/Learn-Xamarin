@@ -6,7 +6,8 @@ namespace HouseChallenges.Domain.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<ActivityExecution> Activities { get; set; }
+        public ICollection<Activity> Activities { get; set; }
         public ICollection<Person> Executors { get; set; }
+        public ICollection<ActivityExecution> ActivitiesExecutions { get; set; }
     }
 }

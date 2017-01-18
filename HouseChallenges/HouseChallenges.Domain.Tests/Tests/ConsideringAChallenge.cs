@@ -1,5 +1,4 @@
-﻿using HouseChallenges.Domain.Entities;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HouseChallenges.Domain.Tests.Tests
 {
@@ -22,7 +21,7 @@ namespace HouseChallenges.Domain.Tests.Tests
             var challenge = Factory.GetNewChallengeInstance();
             Assert.AreEqual(challenge.Activities.Count, 0);
 
-            challenge.AddActivity(new ActivityExecution());
+            challenge.AddActivity(Factory.GetNewActivityExecutionInstance());
             Assert.AreEqual(challenge.Activities.Count, 1);
 
         }

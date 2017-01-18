@@ -6,6 +6,17 @@ namespace HouseChallenges.Domain.Entities
 {
     public class ActivityExecution : IActivityExecutionBase
     {
+        protected ActivityExecution()
+        {
+
+        }
+
+        public ActivityExecution(Person executor, Activity activity)
+        {
+            Activity = activity;
+            Executor = executor;
+        }
+
         public int Id { get; set; }
         public int Points { get; set; }
         public Person Executor;
@@ -18,7 +29,9 @@ namespace HouseChallenges.Domain.Entities
         protected virtual int PersonId { get; set; }
         protected virtual int ActivityId { get; set; }
 
-        public bool Executed => ExecutionStatus == ActivityExecutionStatus.Executed || ExecutionStatus == ActivityExecutionStatus.PartiallyExecuted;
+        public bool Executed =>
+            ExecutionStatus == ActivityExecutionStatus.Executed ||
+            ExecutionStatus == ActivityExecutionStatus.PartiallyExecuted;
 
         #region Public Methods
         public void Execute()
