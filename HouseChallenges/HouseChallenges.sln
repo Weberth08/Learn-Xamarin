@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{7F034901-3B89-451E-9ED2-11941AC44FEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{76D3D998-A2AE-4426-84BA-ED1162FBB423}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{9948BF61-186D-4731-8DAF-F6A89C6C9429}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{0EE37EA7-07ED-45C3-B609-B7CC85662D2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{8FF22419-464F-47FE-AD6E-983DC8C96C30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseChallenges.Domain", "HouseChallenges.Domain\HouseChallenges.Domain.csproj", "{AA7D8E8D-E109-4355-9FAA-F680648C5D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseChallenges.Domain.Tests", "HouseChallenges.Domain.Tests\HouseChallenges.Domain.Tests.csproj", "{85FA4A58-A238-476C-B4A9-AF766BB15459}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA7D8E8D-E109-4355-9FAA-F680648C5D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA7D8E8D-E109-4355-9FAA-F680648C5D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA7D8E8D-E109-4355-9FAA-F680648C5D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA7D8E8D-E109-4355-9FAA-F680648C5D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85FA4A58-A238-476C-B4A9-AF766BB15459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85FA4A58-A238-476C-B4A9-AF766BB15459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85FA4A58-A238-476C-B4A9-AF766BB15459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85FA4A58-A238-476C-B4A9-AF766BB15459}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA7D8E8D-E109-4355-9FAA-F680648C5D13} = {0EE37EA7-07ED-45C3-B609-B7CC85662D2C}
+		{85FA4A58-A238-476C-B4A9-AF766BB15459} = {0EE37EA7-07ED-45C3-B609-B7CC85662D2C}
+	EndGlobalSection
+EndGlobal
