@@ -18,7 +18,7 @@ namespace HouseChallenges.Domain.Tests.Tests
 
 
         [TestMethod]
-        public void ShouldAddAnActivity()
+        public void MustAddAnActivity()
         {
             var challenge = _factory.GetNewChallengeInstance();
             Assert.AreEqual(challenge.Activities.Count, 0);
@@ -29,7 +29,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         }
 
         [TestMethod]
-        public void ShouldAddAPerson()
+        public void MustAddAPerson()
         {
             var challenge = _factory.GetNewChallengeInstance();
             Assert.AreEqual(challenge.People.Count, 0);
@@ -40,7 +40,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         }
 
         [TestMethod]
-        public void ShouldCalculateExecutedPoints()
+        public void MustCalculateExecutedPoints()
         {
             var challenge = _factory.GetNewChallengeInstance();
             var executedActivity = new Activity
@@ -55,7 +55,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         }
 
         [TestMethod]
-        public void ShouldCalculateEstimatedPoints()
+        public void MustCalculateEstimatedPoints()
         {
             var challenge = _factory.GetNewChallengeInstance();
             var executedActivity = new Activity
@@ -77,7 +77,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         }
 
         [TestMethod]
-        public void ShouldBeAnId()
+        public void MustHaveAnId()
         {
             var challenge = _factory.GetNewChallengeInstance();
             Assert.AreNotEqual(challenge.Id.ToString(), string.Empty);

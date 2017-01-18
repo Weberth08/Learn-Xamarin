@@ -42,7 +42,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         #endregion
 
         [TestMethod]
-        public void ShouldAddAChallenge()
+        public void MustAddAChallenge()
         {
             var house = _factory.GetNewHouseInstance();
             house.AddChallenge(_factory.GetNewChallengeInstance());
@@ -51,7 +51,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         }
 
         [TestMethod]
-        public void ShouldAddInhabitant()
+        public void MustAddInhabitant()
         {
             var house = _factory.GetNewHouseInstance();
             house.AddInhabitant(new Person());
@@ -59,7 +59,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         }
 
         [TestMethod]
-        public void ShouldBeAName()
+        public void MustHaveAName()
         {
             var house = _factory.GetNewHouseInstance();
             Assert.AreNotEqual(house.Name, string.Empty);
