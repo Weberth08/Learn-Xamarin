@@ -16,7 +16,7 @@ namespace HouseChallenges.Domain.Entities
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
-            Activities = new List<Activity>();
+            Activities = new List<ActivityExecution>();
             People = new List<Person>();
 
         }
@@ -25,14 +25,14 @@ namespace HouseChallenges.Domain.Entities
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public virtual ICollection<Activity> Activities { get; set; }
+        public virtual ICollection<ActivityExecution> Activities { get; set; }
         public virtual ICollection<Person> People { get; set; }
 
         public int TotalPoints => Activities.Sum(activity => activity.Points);
 
         public int ExecutedPoints => Activities.Where(activity => activity.Executed).Sum(activity => activity.Points);
 
-        public void AddActivity(Activity activity) => Activities?.Add(activity);
+        public void AddActivity(ActivityExecution activity) => Activities?.Add(activity);
 
         public void AddParticipant(Person person) => People?.Add(person);
     }

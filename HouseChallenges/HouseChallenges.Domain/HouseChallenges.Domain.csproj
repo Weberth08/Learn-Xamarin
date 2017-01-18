@@ -34,11 +34,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Activity.cs" />
+    <Compile Include="Entities\ActivityExecution.cs" />
     <Compile Include="Entities\ChallengeBase.cs" />
     <Compile Include="Entities\CompetitionChallenge.cs" />
+    <Compile Include="Entities\HomeTask.cs" />
     <Compile Include="Entities\House.cs" />
+    <Compile Include="Entities\Interfaces\IActivityExecutionBase.cs" />
     <Compile Include="Entities\Person.cs" />
-    <Compile Include="Enums\ActivityStatus.cs" />
+    <Compile Include="Enums\ActivityExecutionStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

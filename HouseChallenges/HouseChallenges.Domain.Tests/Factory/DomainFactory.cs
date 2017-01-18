@@ -20,9 +20,9 @@ namespace HouseChallenges.Domain.Tests.Factory
             return new Person("Person 01");
         }
 
-        public Activity GetNewActivityInstance()
+        public ActivityExecution GetNewActivityExecutionInstance()
         {
-            return new Activity();
+            return new ActivityExecution();
         }
     }
 }

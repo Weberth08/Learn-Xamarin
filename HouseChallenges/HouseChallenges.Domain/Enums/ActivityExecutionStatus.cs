@@ -1,6 +1,6 @@
 ﻿namespace HouseChallenges.Domain.Enums
 {
-    public enum ActivityStatus
+    public enum ActivityExecutionStatus
     {
         NoStarted, InProgress, Canceled, Executed, PartiallyExecuted
     }

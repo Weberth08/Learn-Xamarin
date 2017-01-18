@@ -22,7 +22,7 @@ namespace HouseChallenges.Domain.Tests.Tests
             var challenge = Factory.GetNewChallengeInstance();
             Assert.AreEqual(challenge.Activities.Count, 0);
 
-            challenge.AddActivity(new Activity());
+            challenge.AddActivity(new ActivityExecution());
             Assert.AreEqual(challenge.Activities.Count, 1);
 
         }
@@ -42,7 +42,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void MustCalculateExecutedPoints()
         {
             var challenge = Factory.GetNewChallengeInstance();
-            var executedActivity = Factory.GetNewActivityInstance();
+            var executedActivity = Factory.GetNewActivityExecutionInstance();
             executedActivity.Execute();
             executedActivity.Points = 500;
 
@@ -55,12 +55,12 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void MustCalculateEstimatedPoints()
         {
             var challenge = Factory.GetNewChallengeInstance();
-            var executedActivity = Factory.GetNewActivityInstance();
+            var executedActivity = Factory.GetNewActivityExecutionInstance();
 
             executedActivity.Execute();
             executedActivity.Points = 500;
 
-            var nonExecutedActivity = Factory.GetNewActivityInstance();
+            var nonExecutedActivity = Factory.GetNewActivityExecutionInstance();
             nonExecutedActivity.Points = 500;
 
             challenge.AddActivity(executedActivity);

@@ -27,7 +27,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void MustExecuteAnActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
+            var activity = Factory.GetNewActivityExecutionInstance();
             Assert.AreEqual(false, activity.Executed);
 
             person.Execute(activity);
@@ -39,14 +39,14 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void MustStartAndFinishAnActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
-            Assert.AreEqual(true, activity.Status == ActivityStatus.InProgress);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.InProgress);
 
             person.FinishActivity(activity);
-            Assert.AreEqual(true, activity.Status == ActivityStatus.Executed);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.Executed);
 
         }
 
@@ -54,14 +54,14 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void MustStartAndFinishPartiallyAnActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
-            Assert.AreEqual(true, activity.Status == ActivityStatus.InProgress);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.InProgress);
 
             person.FinishPartiallyActivity(activity);
-            Assert.AreEqual(true, activity.Status == ActivityStatus.PartiallyExecuted);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.PartiallyExecuted);
 
         }
 
@@ -69,14 +69,14 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void MustCancelAnActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
-            Assert.AreEqual(true, activity.Status == ActivityStatus.InProgress);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.InProgress);
 
             person.CancelActivity(activity);
-            Assert.AreEqual(true, activity.Status == ActivityStatus.Canceled);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.Canceled);
 
         }
 
@@ -85,11 +85,11 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void CanNotCancelAnPerformedActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
-            Assert.AreEqual(true, activity.Status == ActivityStatus.InProgress);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.InProgress);
 
             person.FinishActivity(activity);
 
@@ -102,8 +102,8 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void CanNotCancelAnPerformedPartiallyActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
             person.FinishPartiallyActivity(activity);
@@ -117,8 +117,8 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void CanNotStartAnCanceledActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
             person.CancelActivity(activity);
@@ -132,8 +132,8 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void CanNotStartAnStartedActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
             person.StartActivity(activity);
@@ -145,8 +145,8 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void CanNotStartAPerformedPartiallyActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
             person.FinishPartiallyActivity(activity);
@@ -161,8 +161,8 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void CanNotFinishAPerformedPartiallyActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
             person.FinishPartiallyActivity(activity);
@@ -175,8 +175,8 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void CanNotFinishAPerformedActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityInstance();
-            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+            var activity = Factory.GetNewActivityExecutionInstance();
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
 
             person.StartActivity(activity);
             person.FinishActivity(activity);

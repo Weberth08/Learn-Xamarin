@@ -13,27 +13,27 @@
         }
         public string Name { get; set; }
 
-        public void Execute(Activity activity)
+        public void Execute(ActivityExecution activity)
         {
             activity.Execute();
         }
 
-        public void StartActivity(Activity activity)
+        public void StartActivity(ActivityExecution activity)
         {
             activity.Start();
         }
 
-        public void FinishActivity(Activity activity)
+        public void FinishActivity(ActivityExecution activity)
         {
             activity.Finish();
         }
 
-        public void FinishPartiallyActivity(Activity activity)
+        public void FinishPartiallyActivity(ActivityExecution activity)
         {
             activity.PerformPartially();
         }
 
-        public void CancelActivity(Activity activity)
+        public void CancelActivity(ActivityExecution activity)
         {
             activity.Cancel();
         }
