@@ -1,4 +1,6 @@
-﻿namespace HouseChallenges.Domain.Entities
+﻿using HouseChallenges.Domain.Entities.Interfaces;
+
+namespace HouseChallenges.Domain.Entities
 {
     public class Person
     {
@@ -13,27 +15,27 @@
         }
         public string Name { get; set; }
 
-        public void Execute(ActivityExecution activity)
+        public void Execute(IActivityExecutionBase activity)
         {
             activity.Execute();
         }
 
-        public void StartActivity(ActivityExecution activity)
+        public void StartActivity(IActivityExecutionBase activity)
         {
             activity.Start();
         }
 
-        public void FinishActivity(ActivityExecution activity)
+        public void FinishActivity(IActivityExecutionBase activity)
         {
             activity.Finish();
         }
 
-        public void FinishPartiallyActivity(ActivityExecution activity)
+        public void FinishPartiallyActivity(IActivityExecutionBase activity)
         {
             activity.PerformPartially();
         }
 
-        public void CancelActivity(ActivityExecution activity)
+        public void CancelActivity(IActivityExecutionBase activity)
         {
             activity.Cancel();
         }
