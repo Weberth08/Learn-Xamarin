@@ -5,6 +5,7 @@ namespace HouseChallenges.Domain.Entities
 {
     public class Activity
     {
+        public int Id { get; set; }
         public int Points { get; set; }
         public DateTime StartDateTime { get; private set; }
         public DateTime EndDateTime { get; private set; }
@@ -36,7 +37,7 @@ namespace HouseChallenges.Domain.Entities
             Status = ActivityStatus.Executed;
         }
 
-        public void FinishPartially()
+        public void PerformPartially()
         {
             CheckIfCanBePerformedAndThrowsExceptions();
             EndDateTime = DateTime.Now;

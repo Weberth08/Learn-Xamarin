@@ -30,7 +30,7 @@
 
         public void FinishPartiallyActivity(Activity activity)
         {
-            activity.FinishPartially();
+            activity.PerformPartially();
         }
 
         public void CancelActivity(Activity activity)
