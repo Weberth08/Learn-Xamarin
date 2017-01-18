@@ -27,5 +27,10 @@
         {
             activity.Finish();
         }
+
+        public void FinishPartiallyActivity(Activity activity)
+        {
+            activity.FinishPartially();
+        }
     }
 }

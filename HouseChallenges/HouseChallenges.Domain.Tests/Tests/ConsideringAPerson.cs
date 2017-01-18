@@ -48,6 +48,21 @@ namespace HouseChallenges.Domain.Tests.Tests
             Assert.AreEqual(true, activity.Status == ActivityStatus.Executed);
 
         }
+
+        [TestMethod]
+        public void MustStartAndFinishPartiallyAnActivity()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var activity = Factory.GetNewActivityInstance();
+            Assert.AreEqual(true, activity.Status == ActivityStatus.NoStarted);
+
+            person.StartActivity(activity);
+            Assert.AreEqual(true, activity.Status == ActivityStatus.InProgress);
+
+            person.FinishPartiallyActivity(activity);
+            Assert.AreEqual(true, activity.Status == ActivityStatus.PartiallyExecuted);
+
+        }
     }
 
 }
