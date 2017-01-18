@@ -38,10 +38,10 @@
     <Compile Include="Entities\CompetitionChallenge.cs" />
     <Compile Include="Entities\House.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Enums\ActivityStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Enums\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

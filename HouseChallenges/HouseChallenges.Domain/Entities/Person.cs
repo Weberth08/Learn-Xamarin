@@ -12,5 +12,20 @@
             Name = name;
         }
         public string Name { get; set; }
+
+        public void Execute(Activity activity)
+        {
+            activity.Execute();
+        }
+
+        public void StartActivity(Activity activity)
+        {
+            activity.Start();
+        }
+
+        public void FinishActivity(Activity activity)
+        {
+            activity.Finish();
+        }
     }
 }
