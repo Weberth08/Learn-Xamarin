@@ -2,5 +2,6 @@
 {
     public interface IService<TEntity> where TEntity : class
     {
+        void Dispose();
     }
 }
