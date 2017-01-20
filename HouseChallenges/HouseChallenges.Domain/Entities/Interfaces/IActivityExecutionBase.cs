@@ -2,10 +2,10 @@
 {
     public interface IActivityExecutionBase
     {
-        void Cancel();
-        void Execute();
-        void Finish();
-        void PerformPartially();
-        void Start();
+        void Cancel(Person executor);
+        void Execute(Person executor);
+        void Finish(Person executor);
+        void PerformPartially(Person executor);
+        void Start(Person executor);
     }
 }

@@ -9,6 +9,7 @@ namespace HouseChallenges.Domain.Entities
 
         }
 
+        public int Id { get; set; }
         public Person(string name)
         {
             Name = name;
@@ -17,27 +18,46 @@ namespace HouseChallenges.Domain.Entities
 
         public void Execute(IActivityExecutionBase activity)
         {
-            activity.Execute();
+            activity.Execute(this);
         }
 
         public void StartActivity(IActivityExecutionBase activity)
         {
-            activity.Start();
+            activity.Start(this);
         }
 
         public void FinishActivity(IActivityExecutionBase activity)
         {
-            activity.Finish();
+            activity.Finish(this);
         }
 
         public void FinishPartiallyActivity(IActivityExecutionBase activity)
         {
-            activity.PerformPartially();
+            activity.PerformPartially(this);
         }
 
         public void CancelActivity(IActivityExecutionBase activity)
         {
-            activity.Cancel();
+            activity.Cancel(this);
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            return Equals((Person)obj);
+        }
+
+        protected bool Equals(Person other)
+        {
+            return Id == other.Id && string.Equals(Name, other.Name);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (Id * 397) ^ (Name != null ? Name.GetHashCode() : 0);
+            }
         }
     }
 }

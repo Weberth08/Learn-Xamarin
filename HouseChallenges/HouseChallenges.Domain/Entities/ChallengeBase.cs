@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace HouseChallenges.Domain.Entities
 {
@@ -27,10 +26,6 @@ namespace HouseChallenges.Domain.Entities
         public DateTime EndDate { get; set; }
         public virtual ICollection<ActivityExecution> Activities { get; set; }
         public virtual ICollection<Person> People { get; set; }
-
-        public int TotalPoints => Activities.Sum(activity => activity.Points);
-
-        public int ExecutedPoints => Activities.Where(activity => activity.Executed).Sum(activity => activity.Points);
 
         public void AddActivity(ActivityExecution activity) => Activities?.Add(activity);
 
