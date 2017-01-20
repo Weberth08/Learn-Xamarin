@@ -1,40 +1,70 @@
 ﻿using HouseChallenges.Domain.Entities;
-using HouseChallenges.Domain.Entities.Interfaces;
 using HouseChallenges.Domain.Interfaces.Services;
+using HouseChallenges.Domain.Interfaces.UnitOfWork;
 
 namespace HouseChallenges.Domain.Services
 {
-    public class ActivityExecutionService : IActivityExecutionService
+    public class ActivityExecutionService : ServiceBase<ActivityExecution>, IActivityExecutionService
     {
-        public IActivityExecutionBase Create(Person executor, Activity activity)
+        public ActivityExecutionService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            //TODO: move it to a Factory
-            return new ActivityExecution(executor, activity);
         }
 
-        public void Cancel(IActivityExecutionBase activityExecution)
+        public ActivityExecution Create(Person executor, Activity activity)
         {
-            activityExecution.Cancel();
+
+
+            //TODO:MOVE IT TO A FACTORY
+            var activityExecution = new ActivityExecution(executor, activity);
+            UnitOfWork.ActivityExecutionRepository.Add(activityExecution);
+            UnitOfWork.Commit();
+            return activityExecution;
+
         }
 
-        public void Execute(IActivityExecutionBase activityExecution)
+        public void Cancel(ActivityExecution activityExecution, Person executor)
         {
-            activityExecution.Execute();
+
+            activityExecution.Cancel(executor);
+            UnitOfWork.ActivityExecutionRepository.Update(activityExecution);
+            UnitOfWork.Commit();
+
         }
 
-        public void Finish(IActivityExecutionBase activityExecution)
+        public void Execute(ActivityExecution activityExecution, Person executor)
         {
-            activityExecution.Finish();
+
+            activityExecution.Execute(executor);
+            UnitOfWork.ActivityExecutionRepository.Update(activityExecution);
+            UnitOfWork.Commit();
+
         }
 
-        public void PerformPartially(IActivityExecutionBase activityExecution)
+        public void Finish(ActivityExecution activityExecution, Person executor)
         {
-            activityExecution.PerformPartially();
+
+            activityExecution.Finish(executor);
+            UnitOfWork.ActivityExecutionRepository.Update(activityExecution);
+            UnitOfWork.Commit();
+
         }
 
-        public void Start(IActivityExecutionBase activityExecution)
+        public void PerformPartially(ActivityExecution activityExecution, Person executor)
         {
-            activityExecution.Start();
+
+            activityExecution.PerformPartially(executor);
+            UnitOfWork.ActivityExecutionRepository.Update(activityExecution);
+            UnitOfWork.Commit();
+
+        }
+
+        public void Start(ActivityExecution activityExecution, Person executor)
+        {
+
+            activityExecution.Start(executor);
+            UnitOfWork.ActivityExecutionRepository.Update(activityExecution);
+            UnitOfWork.Commit();
+
         }
     }
 }
