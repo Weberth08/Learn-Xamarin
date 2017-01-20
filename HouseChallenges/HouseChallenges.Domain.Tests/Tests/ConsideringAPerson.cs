@@ -27,7 +27,7 @@ namespace HouseChallenges.Domain.Tests.Tests
         public void MustExecuteAnActivity()
         {
             var person = Factory.GetNewPersonInstance();
-            var activity = Factory.GetNewActivityExecutionInstance();
+            var activity = Factory.GetNewActivityExecutionInstance(person);
             Assert.AreEqual(false, activity.Executed);
 
             person.Execute(activity);
@@ -184,6 +184,20 @@ namespace HouseChallenges.Domain.Tests.Tests
 
         }
 
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CanNotExecuteActivityThatNotBelongHim()
+        {
+            var person = Factory.GetNewPersonInstance();
+            var person2 = Factory.GetNewPersonInstance();
+            person2.Name = "Person 2";
+            var activity = Factory.GetNewActivityExecutionInstance(person);
+            Assert.AreEqual(true, activity.ExecutionStatus == ActivityExecutionStatus.NoStarted);
+
+            person2.StartActivity(activity);
+
+        }
     }
 
 }

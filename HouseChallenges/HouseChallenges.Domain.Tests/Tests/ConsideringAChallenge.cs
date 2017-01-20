@@ -37,37 +37,6 @@ namespace HouseChallenges.Domain.Tests.Tests
 
         }
 
-        [TestMethod]
-        public void MustCalculateExecutedPoints()
-        {
-            var challenge = Factory.GetNewChallengeInstance();
-            var executedActivity = Factory.GetNewActivityExecutionInstance();
-            executedActivity.Execute();
-            executedActivity.Points = 500;
-
-            challenge.AddActivity(executedActivity);
-
-            Assert.AreEqual(challenge.ExecutedPoints, 500);
-        }
-
-        [TestMethod]
-        public void MustCalculateEstimatedPoints()
-        {
-            var challenge = Factory.GetNewChallengeInstance();
-            var executedActivity = Factory.GetNewActivityExecutionInstance();
-
-            executedActivity.Execute();
-            executedActivity.Points = 500;
-
-            var nonExecutedActivity = Factory.GetNewActivityExecutionInstance();
-            nonExecutedActivity.Points = 500;
-
-            challenge.AddActivity(executedActivity);
-            challenge.AddActivity(nonExecutedActivity);
-
-            Assert.AreEqual(challenge.TotalPoints, 1000);
-            Assert.AreEqual(challenge.ExecutedPoints, 500);
-        }
 
         [TestMethod]
         public void MustHaveAnId()

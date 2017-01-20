@@ -17,6 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseChallenges.Domain", "H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseChallenges.Domain.Tests", "HouseChallenges.Domain.Tests\HouseChallenges.Domain.Tests.csproj", "{85FA4A58-A238-476C-B4A9-AF766BB15459}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{94B20112-B31C-4F52-BC33-B1F48D6741BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseChallenges.Data", "HouseChallenges.Data\HouseChallenges.Data.csproj", "{E3AE2779-871B-44E6-A289-F98CF59A6F97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - InjectionDependency", "4.2 - InjectionDependency", "{9BFEEC11-FED9-481C-BA8C-69F3D7DC56CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseChallenges.InjectionDependency", "HouseChallenges.InjectionDependency\HouseChallenges.InjectionDependency.csproj", "{7B46EF94-EC2B-4574-A48A-F904463716E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +39,14 @@ Global
 		{85FA4A58-A238-476C-B4A9-AF766BB15459}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85FA4A58-A238-476C-B4A9-AF766BB15459}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85FA4A58-A238-476C-B4A9-AF766BB15459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3AE2779-871B-44E6-A289-F98CF59A6F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3AE2779-871B-44E6-A289-F98CF59A6F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3AE2779-871B-44E6-A289-F98CF59A6F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3AE2779-871B-44E6-A289-F98CF59A6F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B46EF94-EC2B-4574-A48A-F904463716E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B46EF94-EC2B-4574-A48A-F904463716E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B46EF94-EC2B-4574-A48A-F904463716E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B46EF94-EC2B-4574-A48A-F904463716E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,5 +54,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AA7D8E8D-E109-4355-9FAA-F680648C5D13} = {0EE37EA7-07ED-45C3-B609-B7CC85662D2C}
 		{85FA4A58-A238-476C-B4A9-AF766BB15459} = {0EE37EA7-07ED-45C3-B609-B7CC85662D2C}
+		{94B20112-B31C-4F52-BC33-B1F48D6741BB} = {8FF22419-464F-47FE-AD6E-983DC8C96C30}
+		{E3AE2779-871B-44E6-A289-F98CF59A6F97} = {94B20112-B31C-4F52-BC33-B1F48D6741BB}
+		{9BFEEC11-FED9-481C-BA8C-69F3D7DC56CD} = {8FF22419-464F-47FE-AD6E-983DC8C96C30}
+		{7B46EF94-EC2B-4574-A48A-F904463716E0} = {9BFEEC11-FED9-481C-BA8C-69F3D7DC56CD}
 	EndGlobalSection
 EndGlobal

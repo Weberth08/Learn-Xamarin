@@ -22,12 +22,17 @@ namespace HouseChallenges.Domain.Tests.Factory
 
         public Activity GetNewActivityInstance()
         {
-            return new Activity();
+            return new Activity("atividade", 500);
         }
 
         public ActivityExecution GetNewActivityExecutionInstance()
         {
             return new ActivityExecution(GetNewPersonInstance(), GetNewActivityInstance());
+        }
+
+        internal ActivityExecution GetNewActivityExecutionInstance(Person executor)
+        {
+            return new ActivityExecution(executor, GetNewActivityInstance());
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HouseChallenges.Domain.Interfaces.Services;
+﻿using HouseChallenges.Domain.Interfaces.Services;
+using System;
 
 namespace HouseChallenges.Domain.Services
 {
-    class HomeTaskService : IHomeTaskService
+    public class HomeTaskService : IHomeTaskService
     {
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
