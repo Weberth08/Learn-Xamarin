@@ -71,7 +71,6 @@
     <Compile Include="Tests\ConsideringAChallenge.cs" />
     <Compile Include="Tests\ConsideringAnHouse.cs" />
     <Compile Include="Tests\ConsideringAPerson.cs" />
-    <Compile Include="Tests\SimpleInjectorClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HouseChallenges.Data\HouseChallenges.Data.csproj">

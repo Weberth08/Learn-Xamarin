@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FluentValidator.Validation;
 using System.Collections.Generic;
 
 namespace HouseChallenges.Domain.Entities
 {
-    public class Activity
+    public class Activity : BaseEntity
     {
         protected Activity()
         {
@@ -16,15 +16,28 @@ namespace HouseChallenges.Domain.Entities
             Points = points;
         }
         public int Id { get; set; }
-        public string Name { get; set; }
+
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            private set
+            {
+                _name = value;
+                new ValidationContract<Activity>(this).
+                    IsRequired(x => x.Name);
+            }
+        }
+
         private int _points;
         public int Points
         {
             get { return _points; }
             set
             {
-                if (value < 0) throw new ArgumentException("Points value must be greater than 0.");
                 _points = value;
+                new ValidationContract<Activity>(this).IsGreaterThan(x => x.Points, 0);
+
             }
         }
 
