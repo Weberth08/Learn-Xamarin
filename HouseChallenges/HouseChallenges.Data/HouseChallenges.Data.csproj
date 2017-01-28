@@ -68,7 +68,6 @@
     <Compile Include="Repositories\ActivityRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
-    <Compile Include="UnitOfWork\EFUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HouseChallenges.Domain\HouseChallenges.Domain.csproj">

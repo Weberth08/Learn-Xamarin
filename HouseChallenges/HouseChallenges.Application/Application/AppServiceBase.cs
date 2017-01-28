@@ -14,7 +14,7 @@ namespace HouseChallenges.Application.Application
 
         public void Add(TViewObject viewModel)
         {
-
+            throw new System.NotImplementedException();
         }
 
         public void Remove(TViewObject viewModel)
