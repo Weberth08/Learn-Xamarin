@@ -1,14 +1,15 @@
-﻿using HouseChallenges.Domain.Entities;
+﻿using HouseChallenges.Domain.Commands;
+using HouseChallenges.Domain.Entities;
 
 namespace HouseChallenges.Domain.Interfaces.Services
 {
     public interface IActivityExecutionService : IService<ActivityExecution>
     {
-        ActivityExecution Create(Person executor, Activity activity);
-        void Cancel(ActivityExecution activityExecution, Person executor);
-        void Execute(ActivityExecution activityExecution, Person executor);
-        void Finish(ActivityExecution activityExecution, Person executor);
-        void PerformPartially(ActivityExecution activityExecution, Person executor);
-        void Start(ActivityExecution activityExecution, Person executor);
+        ActivityExecution Create(CreateActivityExecutionCommand command);
+        void Cancel(CancelActivityExecutionCommand command);
+        void Execute(ExecuteActivityCommand command);
+        void Finish(FinishActivityExecutionCommand command);
+        void PerformPartially(PerformExecutionPartiallyCommand command);
+        void Start(StartActivityExecutionCommand command);
     }
 }

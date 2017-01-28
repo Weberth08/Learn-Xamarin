@@ -47,6 +47,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\ExecuteActivityCommand.cs" />
     <Compile Include="Entities\Activity.cs" />
     <Compile Include="Entities\ActivityExecution.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
@@ -57,7 +59,6 @@
     <Compile Include="Entities\Interfaces\IActivityExecutionBase.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Enums\ActivityExecutionStatus.cs" />
-    <Compile Include="Interfaces\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IActivityExecutionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IActivityRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPersonRepository.cs" />
@@ -73,9 +74,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,22 +1,47 @@
-﻿using HouseChallenges.Domain.Interfaces.Services;
-using HouseChallenges.Domain.Interfaces.UnitOfWork;
+﻿using HouseChallenges.Domain.Interfaces.Repositories;
+using HouseChallenges.Domain.Interfaces.Services;
+
+using System.Collections.Generic;
 
 namespace HouseChallenges.Domain.Services
 {
-    public class ServiceBase<TEntity> : IService<TEntity> where TEntity : class
+    public abstract class ServiceBase<TEntity> : IService<TEntity> where TEntity : class
     {
-        protected IUnitOfWork UnitOfWork;
-        public ServiceBase(IUnitOfWork unitOfWork)
+        private readonly IRepositoryBase<TEntity> _repository;
+
+
+        protected ServiceBase(IRepositoryBase<TEntity> repository)
         {
-            UnitOfWork = unitOfWork;
+            _repository = repository;
         }
         public void Dispose()
         {
-            using (UnitOfWork)
-            {
-                UnitOfWork.Dispose();
-            }
+
         }
 
+        public TEntity Find(int id)
+        {
+            return _repository.Find(id);
+        }
+
+        public IEnumerable<TEntity> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
+        public void Update(TEntity entity)
+        {
+            _repository.Update(entity);
+        }
+
+        public void Remove(TEntity entity)
+        {
+            _repository.Remove(entity);
+        }
+
+        public void Add(TEntity entity)
+        {
+            _repository.Add(entity);
+        }
     }
 }
